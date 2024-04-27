@@ -60,6 +60,12 @@ class User(AbstractBaseUser):
         }
     )
 
+    is_staff = models.BooleanField(default=False)
+    is_superuser = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
+    last_login = models.DateTimeField(auto_now=True)
+    date_joined = models.DateTimeField(auto_now_add=True)
+
     objects = UserManager()
 
 
@@ -71,5 +77,10 @@ class User(AbstractBaseUser):
     def __str__(self):
 
         return self.email
+    
+
+
+    
+
 
     
